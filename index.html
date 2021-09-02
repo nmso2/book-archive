@@ -10,19 +10,25 @@
     <title>Book Archive</title>
 </head>
 
-<body>
+<body style="background-image: url('images/background.jpg'); background-size: 100%; background-attachment: fixed;">
 
     <div class="container">
-        <h1 class=" my-5 text-center">Search for Books!</h1>
+        <h1 class=" my-5 text-center text-white">Search for Books!</h1>
 
         <div class="input-group mb-3 w-50 mx-auto">
             <input type="text" id="bookInput" class="form-control" placeholder="Enter book name..."
                 aria-label="Enter book name..." aria-describedby="button-addon2">
-            <button onclick="searchBook()" class="btn btn-outline-secondary" type="button"
+            <button onclick="searchBook()" class="btn btn-outline-secondary text-white" type="button"
                 id="searchButton">Search</button>
         </div>
-
-
+        <div id="spinner" class="d-flex justify-content-center d-none text-white">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        <h2 id="errorMessage1" class=" my-5 text-center text-danger d-none text-white">You forgot to enter the name of the book!
+        </h2>
+        <p id="search-result-count" class="text-center text-white"></p>
         <div id="search-result" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
         </div>
     </div>
