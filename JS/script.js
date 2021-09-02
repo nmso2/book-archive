@@ -5,7 +5,6 @@ const searchBook = () => {
     document.getElementById('search-result').textContent = '';
     document.getElementById('search-result-count').innerText = '';
 
-
     if (searchText === '') {
         //Error massege if nothing is typed
         document.getElementById("errorMessage1").classList.remove("d-none");
@@ -24,6 +23,7 @@ const searchBook = () => {
 //Displaying books
 const displaySearchResult = books => {
     const searchResult = document.getElementById('search-result');
+
     if (books.numFound === 0) {
         //Error massege if no book found
         document.getElementById('search-result-count').innerText = `No book found!`
@@ -31,7 +31,7 @@ const displaySearchResult = books => {
         document.getElementById("spinner").classList.add("d-none");
     }
     else {
-        document.getElementById('search-result-count').innerText = `Displaying 20 of ${books.numFound} books...`
+        document.getElementById('search-result-count').innerText = `Displaying ${books.numFound >= 20 ? '20' : books.numFound} of ${books.numFound} books...`
         document.getElementById("spinner").classList.add("d-none");
         document.getElementById('search-result-count').classList.remove("fs-3");
     }
